@@ -1,0 +1,11 @@
+sprint framework
+=================
+-Tight couplling and loose coupling 
+
+
+- IOC Container
+-Application context 
+- ComptentScan
+- Dependency Injection
+- Spring Beans
+- Auto wire of beans

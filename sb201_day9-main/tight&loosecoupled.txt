@@ -1,0 +1,77 @@
+Q3/- Explain about loose coupling and tight coupling between application components with
+an example
+
+A3.
+tight couple: If both class calls each other methods then we can say both are tightly coupled.
+tightly couple sometime can generates some problem like if we want to change any class
+we have to change everything in both the classes wherever we are using their methods.
+
+for ex:
+class Movies{
+  void msg(){
+   System.out.println("movies");
+}
+ 
+}
+class Comedy{
+Movies m=new Movies();
+  void tc(){
+   m.msg();
+   System.out.println("comedy movies");
+}
+ 
+}
+Here m object is dependency and Comedy class is dependent class.
+and this is tightly coupled classes.If we change the method name in Movies class
+we have to change it in dependency class too.
+
+so to make it loosely coupled we have to two techniques:
+
+1)apply POJO by POJI model.
+2) Apply Dependency Injection
+
+ex:
+
+public Interface everyone{
+
+     void go(){
+   System.out.println("movies");
+}
+}
+
+class Movies implements everyone{
+
+
+  void msg(){
+   System.out.println("movies");
+}
+
+@override
+  void go(){
+  msg();
+}
+ 
+}
+class Comedy{
+Movies m;
+
+//constructor injection point
+/*public Travel(Movies m) {
+this.m=m;
+} */
+
+
+//setter injection point
+public void setV(Movies m) {
+this.m=m;
+}
+
+  void tc(){
+   m.go();
+   System.out.println("comedy movies");
+}
+ 
+}
+so from now onwards we have to just changes the movies class method and not comedy class method
+and this will become loosely coupled.
+
